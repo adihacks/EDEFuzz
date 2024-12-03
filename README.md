@@ -1,25 +1,10 @@
-# EDEFuzz - Hunting excessive data exposure in web APIs
+# Chezzer
 
 A tool to flag excessive data exposure vulnerabilities in web APIs. Tested on Ubuntu 20.04 and Windows 10 22H2.
 
 The design and implementation of EDEFuzz are described in our [paper](https://dl.acm.org/doi/abs/10.1145/3597503.3608133). Read our [slides](https://github.com/Broken-Assumptions/EDEFuzz/blob/main/EDEFuzz_ICSE.pdf) may also help to understand the design of EDEFuzz. 
 
 
-## Citing EDEFuzz
-
-EDEFuzz was accepted for publication at the 46th International Conference on Software Engineering (ICSE 2024).
-
-If you use EDEFuzz in your research, please cite our ICSE'2024 paper. 
-
-```
-@inproceedings{pan2024edefuzz,
-  title={EDEFuzz: A Web API Fuzzer for Excessive Data Exposures},
-  author={Pan, Lianglu and Cohney, Shaanan and Murray, Toby and Pham, Van-Thuan},
-  booktitle={Proceedings of the 46th IEEE/ACM International Conference on Software Engineering},
-  pages={1--12},
-  year={2024}
-}
-```
 
 ## Folder structure
 
@@ -83,20 +68,6 @@ Flagged excessive data fields are reported in `tests/[target].csv`. Each line in
 
 A statistical summary is generated in `report_stat.csv`. Each line in `report_stat.csv` is in the form `[target name], [test duration (min)], [number of data fields in API], [number of executed test cases], [number of excessive fields flagged], [extra flags indicating why EDEFuzz failed (explained in section 5.2 RQ2)]`. This statistical summary is useful after testing multiple targets. 
 
-## Dataset Used in Our Paper
-
-### The Australian Dataset
-
-| Appear in paper | Entity Name | [target] name used in EDEFuzz |
-|---|---|---|
-| Company-A | Australia Post | auspost |
-| Company-B | Canvas | canvas |
-| Company-C | Chemist Warehouse | chemistwarehouse |
-| Company-D | Ikea Australia | ikea |
-| Company-E | JB-HIFI | jbhifi |
-| Company-F | JetStar | jetstar |
-| Company-G | Myer | myer |
-| Company-H | Volkswagen Australia | volkswagen |
 
 * Some businesses included in our Australian dataset have updated their websites (e.g. new API endpoints, the page we tested no longer accessible, etc.). The config files for those targets are revised in January 2024.
 * Company-A's website is now protected by CAPTCHA (discussed in section 5.2 RQ2). While we still provide a config file for Company-A, it may fail the preparation phase.
